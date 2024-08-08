@@ -1,7 +1,7 @@
+import { localStorageKeys } from '@/constants'
 import { message } from 'antd'
 import axios, { type AxiosInstance, type AxiosResponse } from 'axios'
 
-const tokenKey = 'userToken'
 const { VITE_API_HOST } = import.meta.env
 
 export interface ResponseData<T> {
@@ -38,7 +38,7 @@ RestRequest.interceptors.response.use(
 
 RestRequest.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem(tokenKey)
+    const token = localStorage.getItem(localStorageKeys.tokenKey)
     if (token && config.headers) {
       config.headers.Authorization = `bearer ${token}`
     }

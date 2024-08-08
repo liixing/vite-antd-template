@@ -6,7 +6,7 @@ import { swrFetcher } from './utils/request'
 import { theme } from './theme'
 import { type RouteObject, useRoutes, BrowserRouter } from 'react-router-dom'
 import { WebRoutes } from './routes/Routes'
-
+import 'dayjs/locale/zh-cn'
 dayjs.locale('zh-cn')
 
 function AppRouter(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | null {
@@ -22,12 +22,6 @@ function App(): JSX.Element {
           autoInsertSpace: false
         }}
         theme={theme}
-        getPopupContainer={(triggerNode) => {
-          if (triggerNode) {
-            return triggerNode.parentNode as HTMLElement
-          }
-          return document.body
-        }}
       >
         <BrowserRouter basename={import.meta.env.BASE_URL}>
           <AppRouter />

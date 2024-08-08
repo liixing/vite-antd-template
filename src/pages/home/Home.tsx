@@ -1,18 +1,17 @@
 import { Button } from 'antd'
-import styled from 'styled-components'
+import { HomeStyled, SpaceStyled } from './style'
 
-export default function Home(): JSX.Element {
+export function Home(): JSX.Element {
   return (
-    <HomeWrap>
-      <Button type="primary">homeButton</Button>
-    </HomeWrap>
+    <HomeStyled>
+      <SpaceStyled>
+        <Button type="primary">homeButton</Button>
+        <Button type="default">homeButton</Button>
+        <Button type="dashed">homeButton</Button>
+        <Button type="link" className="underline">
+          homeButton
+        </Button>
+      </SpaceStyled>
+    </HomeStyled>
   )
 }
-
-export const HomeWrap = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
